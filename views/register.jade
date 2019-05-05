@@ -1,0 +1,27 @@
+extends layout
+
+block content
+ section.admin
+  .form
+    .container.well
+      h2.text-center Enter User-Details
+      form.form-horizontal(action='/register', method='post')
+        .form-group
+          if(message)
+          label.control-label.col-sm-7(for='messager', style="color:#{color}")= message
+        .form-group
+          if(error)
+            label.control-label.col-sm-8(for='error', style='color:red') Username or Password is Incorrect
+        .form-group
+          label.control-label.col-sm-4(for='user') User-Name
+          .col-sm-5
+            input#user.form-control(type='text', placeholder='Enter User-Name..', name='user' autocomplete='off' required)
+        .form-group
+          label.control-label.col-sm-4(for='pwd') Password
+          .col-sm-5
+            input#pwd.form-control(type='Password', placeholder='Enter Password..', name='pwd' required)
+        .form-group
+          .col-sm-offset-4.col-sm-2
+            button.btn.btn-default(type='submit') Register
+          .col-sm-1
+            a.btn.btn-default(href='/') Back to Login

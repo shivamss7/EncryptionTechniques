@@ -1,0 +1,36 @@
+extends layout
+
+block content
+	if(!document.data)
+		.row
+			section.sectionOne(style='margin-left:370px;')
+				.col-sm-6.container.well(style='text-align:center')
+					h2 No Data Stored
+	else
+		if(document.data.hybrid.length)
+			.row
+				section.sectionOne
+					- var count = 1;
+					each hy in document.data.hybrid
+						.col-sm-3.well
+							h3
+								a(href='/decryptHybrid/?count=#{count}')  Hybrid Encryption #{count}
+								- count++ 
+		if(document.data.layered.length)
+			.row
+				section.sectionOne
+					- var count = 1;
+					each hy in document.data.layered
+						.col-sm-3.well
+							h3
+								a(href='/decryptLayered/?count=#{count}')  Layered Encryption #{count}
+								- count++
+		if(document.data.asymmetric.length)
+			.row
+				section.sectionOne
+					- var count = 1;
+					each hy in document.data.asymmetric
+						.col-sm-3.well
+							h3
+								a(href='/decryptAsymmetric/?count=#{count}')  Asymmetric Encryption #{count}
+								- count++

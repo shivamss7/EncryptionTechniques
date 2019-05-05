@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='../stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='../stylesheets/style.css')
+	body
+		section.sectionOne.text-center
+			div
+				h1.heading= heading
+				if(session)
+					a.btn.btn-primary(href='/logout' role='button' style='margin:0 80px 40px 0')  Logout
+		block content

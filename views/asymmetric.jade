@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+	section.sectionOne.text-center
+		.row
+			.col-sm-3.well(style='margin-left:440px;')
+				h3
+					a(href='/generateKeys') Generate Keys
+
+	section.sectionHybrid.text-center
+		if(message)
+			.row
+				h2= message
+		.row
+			form(action='/submitAsymmetric', method='post')
+				.col-sm-6.form-group.border
+					h2  Enter you Data 
+					.col-sm-10
+						textarea#data1.form-control(rows='7', name='data' required)= data
+					.col-sm-12.submit
+						button.btn.btn-primary(role='button')  Submit
+			form(action='/saveAsymmetric', method='post') 
+				.col-sm-6.output
+					h2  Encrypted Data 
+					.col-sm-10
+						textarea#data2.form-control(rows='7' name='data2' required)= data2
+					.col-sm-12.submit
+						button.btn.btn-primary(role='button')  Save to Database 

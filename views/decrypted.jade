@@ -1,0 +1,14 @@
+extends layoutDecrypt
+
+block content
+  
+  section.sectionDecrypted.text-center
+    if(message)
+      .row
+        h2= message
+    .row
+      form(action='#', method='post')
+        .col-sm-6.form-group(style='margin-left:370px;')
+          h2 Decrypted Data 
+          .col-sm-10
+            textarea#data1.form-control(rows='7', name='data' required)= document

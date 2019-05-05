@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  
+  section.sectionHybrid.text-center
+    if(message)
+      .row
+        h2= message
+    .row
+      form(action='/submitHybrid', method='post')
+        .col-sm-6.form-group.border
+          h2  Enter you Data 
+          .col-sm-10
+            textarea#data1.form-control(rows='7', name='data' required)= data
+          .col-sm-12.submit
+            button.btn.btn-primary(role='button')  Submit
+      form(action='/saveHybrid', method='post') 
+        .col-sm-6.output
+          h2  Encrypted Data 
+          .col-sm-10
+            textarea#data2.form-control(rows='7' name='data2' required)= data2
+          .col-sm-12.submit
+            button.btn.btn-primary(role='button')  Save to Database 
